@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct ChatMessage: Identifiable {
+struct ChatMessage: Identifiable, Equatable {
 	struct Sender {
 		var id: String
 		var displayName: String
 	}
 
 
-	var id: Int?
+//	var id: Int?
+	let id = UUID()
 	var chatId: Int?
 	let userId: Int
 	let timestamp: Double
@@ -78,8 +79,7 @@ struct ChatMessage: Identifiable {
 		case message
 	}
 
-	init(id: Int? = nil, chatId: Int? = nil, userId: Int, message: String, timestamp: Double = Date().timeIntervalSince1970) {
-		self.id = id
+	init(chatId: Int? = nil, userId: Int, message: String, timestamp: Double = Date().timeIntervalSince1970) {
 		self.chatId = chatId
 		self.userId = userId
 		self.message = message
