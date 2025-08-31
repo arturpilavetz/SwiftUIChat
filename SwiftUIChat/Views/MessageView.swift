@@ -111,6 +111,6 @@ struct MessageShape: Shape {
 }
 
 
-#Preview {
-	ChatView(viewModel: ChatViewModel())
-}
+//#Preview {
+//	ChatView(viewModel: ChatViewModel())
+//}

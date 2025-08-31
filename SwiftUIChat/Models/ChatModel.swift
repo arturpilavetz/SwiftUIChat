@@ -32,45 +32,6 @@ struct ChatMessage: Identifiable, Equatable {
 
 	var type: MessageContentType
 
-	enum MessageContentType {
-		case user, partner
-
-		var backgroundColor: Color {
-			switch self {
-				case .user:
-					return .userBackground
-				case .partner:
-					return .partnerBackground
-			}
-		}
-
-		var textColor: Color {
-			switch self {
-				case .user:
-					return .white
-				case .partner:
-					return .partnerText
-			}
-		}
-
-		var textAlignment: TextAlignment {
-			switch self {
-				case .user:
-					return .trailing
-				case .partner:
-					return .leading
-			}
-		}
-
-
-		var hAlignment: Alignment {
-			switch self {
-				case .user: return .trailing
-				case .partner: return .leading
-			}
-		}
-	}
-
 	enum CodingKeys: String, CodingKey {
 		case id = "id"
 		case chatId = "chat_id"
@@ -93,3 +54,43 @@ struct ChatMessage: Identifiable, Equatable {
 		}
 	}
 }
+
+enum MessageContentType {
+	case user, partner
+
+	var backgroundColor: Color {
+		switch self {
+			case .user:
+				return .userBackground
+			case .partner:
+				return .partnerBackground
+		}
+	}
+
+	var textColor: Color {
+		switch self {
+			case .user:
+				return .white
+			case .partner:
+				return .partnerText
+		}
+	}
+
+	var textAlignment: TextAlignment {
+		switch self {
+			case .user:
+				return .trailing
+			case .partner:
+				return .leading
+		}
+	}
+
+
+	var hAlignment: Alignment {
+		switch self {
+			case .user: return .trailing
+			case .partner: return .leading
+		}
+	}
+}
+
