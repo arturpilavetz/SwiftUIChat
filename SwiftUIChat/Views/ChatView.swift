@@ -32,7 +32,7 @@ struct ChatView: View {
 							.padding(.horizontal)
 						}
 						.rotationEffect(.degrees(180))
-						.introspect(.scrollView, on: .iOS(.v15, .v16, .v17, .v18)) { scrollView in //TODO: add iOS 26
+						.introspect(.scrollView, on: .iOS(.v15, .v16, .v17, .v18, .v26)) { scrollView in
 							//disables scrollToTop if tapped on top of the screen, because ScrollView is rotated
 							scrollView.scrollsToTop = false
 						}

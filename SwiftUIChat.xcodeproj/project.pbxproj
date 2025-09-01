@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9BA6DEB92E5DDCB400587469 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 9BA6DEB82E5DDCB400587469 /* SwiftUIIntrospect */; };
+		9BC7725E2E65C61F0038A97C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 9BC7725D2E65C61F0038A97C /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA6DEB92E5DDCB400587469 /* SwiftUIIntrospect in Frameworks */,
+				9BC7725E2E65C61F0038A97C /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			);
 			name = SwiftUIChat;
 			packageProductDependencies = (
-				9BA6DEB82E5DDCB400587469 /* SwiftUIIntrospect */,
+				9BC7725D2E65C61F0038A97C /* SwiftUIIntrospect */,
 			);
 			productName = SwiftUIChat;
 			productReference = 9BB20E8C2E4150F30092F16F /* SwiftUIChat.app */;
@@ -202,7 +202,7 @@
 			mainGroup = 9BB20E832E4150F30092F16F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				9BA6DEB72E5DDCB400587469 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				9BC7725C2E65C61F0038A97C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9BB20E8D2E4150F30092F16F /* Products */;
@@ -571,20 +571,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9BA6DEB72E5DDCB400587469 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+		9BC7725C2E65C61F0038A97C /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
+				kind = exactVersion;
+				version = "1.4.0-beta.4";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9BA6DEB82E5DDCB400587469 /* SwiftUIIntrospect */ = {
+		9BC7725D2E65C61F0038A97C /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9BA6DEB72E5DDCB400587469 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			package = 9BC7725C2E65C61F0038A97C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
 			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
