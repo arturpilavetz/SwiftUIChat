@@ -132,6 +132,9 @@ struct ChatView: View {
 								.clipped()
 								.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
 
+								.introspect(.textEditor, on: .iOS(.v15, .v16, .v17, .v18)) { textEditor in
+									textEditor.backgroundColor = .clear
+								}
 							if newMessage.isEmpty {
 								Text("Type your message...")
 									.foregroundColor(.gray)
@@ -148,10 +151,10 @@ struct ChatView: View {
 						}
 						.disabled(newMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
 					}
-					.padding(.horizontal, 16)
-					.padding(.vertical, 12)
+					.padding(.horizontal, 14)
+					.padding(.vertical, 6)
 					.background(.ultraThinMaterial)
-					.clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+					.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 					.background(
 						GeometryReader { geometry in
 							Color.clear
