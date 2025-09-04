@@ -35,7 +35,7 @@ public struct ChatView: View {
 						}
 					}
 					.padding(.top, safeAreaTopHeight)
-					.padding(.bottom, textFieldHeight + safeAreaBottomHeight + textFieldInsets) // Extra padding for bottom overlay
+					.padding(.bottom, textFieldHeight + safeAreaBottomHeight + textFieldInsets)
 					.rotationEffect(.degrees(180))
 					.padding(.vertical, 12)
 					.padding(.horizontal)
@@ -46,7 +46,6 @@ public struct ChatView: View {
 					scrollView.scrollsToTop = false
 					scrollView.keyboardDismissMode = .interactive
 				}
-//				.scrollDismissesKeyboard(.interactively)
 				.onTapGesture { isInputFocused = false }
 				.onChange(of: viewModel.messages.count) { _ in
 					scrollToLastMessage(using: proxy)
@@ -62,8 +61,7 @@ public struct ChatView: View {
 				}
 				.overlay(alignment: .top) {
 					LinearGradient(
-//						colors: [.topEdgeGradient, .clear],
-						colors: [.white, .clear],
+						colors: [.topEdgeGradient, .clear],
 						startPoint: .top,
 						endPoint: .bottom
 					)
@@ -72,8 +70,7 @@ public struct ChatView: View {
 				}
 				.overlay(alignment: .bottom) {
 					LinearGradient(
-//						colors: [.topEdgeGradient, .clear],
-						colors: [.white, .clear],
+						colors: [.topEdgeGradient, .clear],
 						startPoint: .bottom,
 						endPoint: .top
 					)

@@ -13,11 +13,9 @@ public enum MessageContentType: Sendable {
 	public var backgroundColor: Color {
 		switch self {
 			case .user:
-//				return .userBackground
-				return .green
+				return .userBackground
 			case .partner:
-//				return .partnerBackground
-				return .gray
+				return .partnerBackground
 		}
 	}
 
@@ -26,8 +24,7 @@ public enum MessageContentType: Sendable {
 			case .user:
 				return .white
 			case .partner:
-//				return .partnerText
-				return .white
+				return .partnerText
 		}
 	}
 
@@ -43,8 +40,10 @@ public enum MessageContentType: Sendable {
 
 	public var hAlignment: Alignment {
 		switch self {
-			case .user: return .trailing
-			case .partner: return .leading
+			case .user:
+				return .trailing
+			case .partner:
+				return .leading
 		}
 	}
 }
