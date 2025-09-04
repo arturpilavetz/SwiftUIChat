@@ -5,16 +5,16 @@ import SwiftUI
 
 // MARK: - Public Configuration
 public struct ChatConfiguration {
-	public let userID: Int
+	public let localUserID: Int
 	public let allowsMessageInput: Bool
 	public let maxMessageLength: Int
 
 	public init(
-		userID: Int = 12345,
+		localUserID: Int = 0,
 		allowsMessageInput: Bool = true,
 		maxMessageLength: Int = 500
 	) {
-		self.userID = userID
+		self.localUserID = localUserID
 		self.allowsMessageInput = allowsMessageInput
 		self.maxMessageLength = maxMessageLength
 	}
@@ -23,9 +23,15 @@ public struct ChatConfiguration {
 // MARK: - Public Factory Methods
 public extension ChatView {
 	/// Creates a ChatView with default configuration
+	static func createDefault(with configuration: ChatConfiguration = ChatConfiguration()) -> ChatView {
+		let viewModel = ChatViewModel()
+		viewModel.localUserID = configuration.localUserID
+		return ChatView(viewModel: viewModel)
+	}
+
 	static func create(with configuration: ChatConfiguration = ChatConfiguration()) -> ChatView {
 		let viewModel = ChatViewModel()
-		viewModel.userID = configuration.userID
+		viewModel.localUserID = configuration.localUserID
 		return ChatView(viewModel: viewModel)
 	}
 }

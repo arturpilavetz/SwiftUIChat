@@ -11,6 +11,11 @@ public struct ChatMessage: Identifiable, Equatable {
 	struct Sender {
 		var id: String
 		var displayName: String
+
+		public init(id: String, displayName: String) {
+			self.id = id
+			self.displayName = displayName
+		}
 	}
 
 	public let id = UUID()
@@ -19,16 +24,16 @@ public struct ChatMessage: Identifiable, Equatable {
 	public let timestamp: Double
 	public let message: String
 
+	public let type: MessageContentType
+
 	var sender: Sender {
 		Sender(id: "\(userId)", displayName: "")
 	}
-//	var messageId: String
 
 	var sentDate: Date {
 		Date(timeIntervalSince1970: timestamp)
 	}
 
-	var type: MessageContentType
 
 	enum CodingKeys: String, CodingKey {
 		case id = "id"
@@ -38,14 +43,13 @@ public struct ChatMessage: Identifiable, Equatable {
 		case message
 	}
 
-	public init(chatId: Int? = nil, userId: Int, message: String, timestamp: Double = Date().timeIntervalSince1970) {
+	public init(chatId: Int? = nil, userId: Int, message: String, timestamp: Double = Date().timeIntervalSince1970, localUserID: Int) {
 		self.chatId = chatId
 		self.userId = userId
 		self.message = message
 		self.timestamp = timestamp
-
-
-		if userId == 12345 {
+		
+		if userId == localUserID {
 			self.type = .user
 		} else {
 			self.type = .partner

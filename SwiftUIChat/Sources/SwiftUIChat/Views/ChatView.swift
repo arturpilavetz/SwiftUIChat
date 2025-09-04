@@ -22,7 +22,10 @@ public struct ChatView: View {
 	private let textFieldInsets: CGFloat = 10
 
 
-
+	public init(viewModel: ChatViewModel) {
+		self._viewModel = StateObject(wrappedValue: viewModel)
+	}
+	
 	//TODO: add a butoon with popup animation to scroll to top, presents animated when scrolled from bottom for the height of a MessageView min height
 	public var body: some View {
 		ZStack(alignment: .bottom) {
