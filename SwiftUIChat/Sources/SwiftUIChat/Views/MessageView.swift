@@ -1,3 +1,10 @@
+//
+//  MessageView.swift
+//  SwiftUIChat
+//
+//  Created by Artur Pilavetz on 27.08.2025.
+//
+
 import SwiftUI
 
 struct MessageView: View {
@@ -14,12 +21,15 @@ struct MessageView: View {
 
 				VStack(alignment: message.type.hAlignment.horizontal, spacing: 4) {
 					Text(message.message)
-						.padding(12)
+						.padding(.leading, message.type == .user ? 12 : 17)
+						.padding(.trailing, message.type == .user ? 17 : 12)
+						.padding(.top, 12)
+						.padding(.bottom, 12)
 						.background(message.type.backgroundColor)
-						.foregroundStyle(message.type.textColor)
-						.cornerRadius(23)
-						.multilineTextAlignment(message.type.textAlignment)
-					Text("\(message.timestamp)")
+						.clipShape(MessageShape(type: message.type))
+						.foregroundColor(message.type.textColor)
+
+					Text(Date(timeIntervalSince1970: message.timestamp), format: .dateTime.hour().minute())
 						.font(.system(size: 12))
 						.padding(.horizontal, 12)
 				}
@@ -27,9 +37,6 @@ struct MessageView: View {
 
 				if message.type != .user { Spacer() }
 			}
-			.padding(.horizontal)
-
 		}
     }
-	
 }
