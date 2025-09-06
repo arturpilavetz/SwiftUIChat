@@ -194,9 +194,3 @@ public struct ChatView: View {
 		}
 	}
 }
-
-//#Preview {
-//	ChatView(viewModel: ChatViewModel())
-//}
-
-

@@ -37,11 +37,6 @@ struct MessageView: View {
 
 				if message.type != .user { Spacer() }
 			}
-//			.padding(.horizontal)
 		}
     }
 }
-
-//#Preview {
-//	ChatView(viewModel: ChatViewModel())
-//}

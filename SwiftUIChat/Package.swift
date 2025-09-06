@@ -13,10 +13,6 @@ let package = Package(
 			name: "SwiftUIChat",
 			targets: ["SwiftUIChat"]
 		),
-//		.executable(
-//			name: "SwiftUIChatApp",
-//			targets: ["SwiftUIChatApp"]
-//		)
 	],
 	dependencies: [
 		.package(url: "https://github.com/siteline/swiftui-introspect", from: "1.4.0-beta.4")
@@ -29,11 +25,6 @@ let package = Package(
 			],
 			path: "Sources/SwiftUIChat"
 		),
-//		.executableTarget(
-//			name: "SwiftUIChatApp",
-//			dependencies: ["SwiftUIChat"],
-//			path: "Sources/SwiftUIChatApp"
-//		),
 		.testTarget(
 			name: "SwiftUIChatTests",
 			dependencies: ["SwiftUIChat"],

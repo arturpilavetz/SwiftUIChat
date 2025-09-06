@@ -11,31 +11,33 @@ import SwiftUI
 public class ChatViewModel: ObservableObject {
 	@Published public var messages = [ChatMessage]()
 	public var localUserID = 0
+	public var chatID = 0
+
 
 	public init() {
-		setMessages()
+//		setMessages()
 	}
 
-	func setMessages() {
-		messages = [
-//			ChatMessage(chatId: 1001, userId: 0, message: "First", timestamp: 12345678),
-//			ChatMessage(chatId: 1001, userId: 0, message: "2", timestamp: 12345679),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "3", timestamp: 12345690),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "4", timestamp: 12345691),
-//			ChatMessage(chatId: 1001, userId: 0, message: "5", timestamp: 12345678),
-//			ChatMessage(chatId: 1001, userId: 0, message: "6", timestamp: 12345679),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "7", timestamp: 12345690),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "8", timestamp: 12345691),
-//			ChatMessage(chatId: 1001, userId: 0, message: "9", timestamp: 12345678),
-//			ChatMessage(chatId: 1001, userId: 0, message: "10", timestamp: 12345679),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "11", timestamp: 12345690),
-//			ChatMessage(chatId: 1001, userId: 56789, message: "Last", timestamp: 12345691),
-		]
-	}
+//	func setMessages() {
+//		messages = [
+////			ChatMessage(chatId: 1001, userId: 0, message: "First", timestamp: 12345678),
+////			ChatMessage(chatId: 1001, userId: 0, message: "2", timestamp: 12345679),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "3", timestamp: 12345690),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "4", timestamp: 12345691),
+////			ChatMessage(chatId: 1001, userId: 0, message: "5", timestamp: 12345678),
+////			ChatMessage(chatId: 1001, userId: 0, message: "6", timestamp: 12345679),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "7", timestamp: 12345690),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "8", timestamp: 12345691),
+////			ChatMessage(chatId: 1001, userId: 0, message: "9", timestamp: 12345678),
+////			ChatMessage(chatId: 1001, userId: 0, message: "10", timestamp: 12345679),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "11", timestamp: 12345690),
+////			ChatMessage(chatId: 1001, userId: 56789, message: "Last", timestamp: 12345691),
+//		]
+//	}
 
 	func addMessage(text: String) {
 		let message = ChatMessage(
-			chatId: 1001,
+			chatId: chatID,
 			userId: localUserID,
 			message: text,
 			timestamp: Date().timeIntervalSince1970,
