@@ -23,7 +23,7 @@ let package = Package(
 			dependencies: [
 				.product(name: "SwiftUIIntrospect", package: "SwiftUI-Introspect")
 			],
-			path: "Sources/SwiftUIChat"
+			path: "Sources"
 		),
 		.testTarget(
 			name: "SwiftUIChatTests",
