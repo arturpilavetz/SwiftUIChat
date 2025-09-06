@@ -7,18 +7,24 @@ A modern, customizable chat interface built with SwiftUI. This library provides 
 - **Modern SwiftUI Design** - Built entirely with SwiftUI and follows modern iOS design patterns  
 - **Custom Message Bubbles** - Beautiful chat bubbles with tail indicators  
 - **Customizable Themes** - Easy to customize colors and appearance  
+- **Dark Mode** - Automatically changes with the system  
 - **Smart Keyboard Handling** - Automatic keyboard avoidance and interactive dismissal  
 - **Smooth Animations** - Fluid scrolling 
 - **iOS 15+ Support** - Compatible with iOS 15+
 - **Focused Design** - Clean, distraction-free chat interface  
 
-## Screenshots
+## The look
 
-*Coming soon*
+### iOS 26
+
+<img width="315" height="677" alt="Screenshot 2025-09-04 at 23 03 40" src="https://github.com/user-attachments/assets/2c2aa36a-0a95-4aa6-bfef-b72bf7fb963e" />
+<img width="315" height="677" alt="Screenshot 2025-09-04 at 23 03 46" src="https://github.com/user-attachments/assets/2530680e-2233-4968-b212-0611acf281f2" />
 
 
-https://github.com/user-attachments/assets/a38a65a8-ed5b-448f-857b-2dd8650fd2a9
+### iOS 15-18
 
+<img width="322" height="699" alt="IMG_8420" src="https://github.com/user-attachments/assets/3e6c48f5-da26-4f76-9269-092c53ef5e67" />
+<img width="322" height="699" alt="IMG_8421" src="https://github.com/user-attachments/assets/bf656575-9ac3-44cc-ae18-71e8061f8f7d" />
 
 
 
@@ -65,7 +71,7 @@ struct ContentView: View {
 }
 ```
 
-That's it! You now have a fully functional chat interface.
+That's it! You now have a functional chat interface with pre-set messages.
 
 ### Using Your Own View Model
 
@@ -82,7 +88,6 @@ struct MyChatView: View {
     }
     
     private func loadMessages() {
-        // Add your custom messages
         viewModel.messages = [
             ChatMessage(userId: 67890, message: "Hello!", timestamp: Date().timeIntervalSince1970, localUserID: viewModel.localUserID),
             ChatMessage(userId: 12345, message: "Hi there!", timestamp: Date().timeIntervalSince1970, localUserID: viewModel.localUserID)
