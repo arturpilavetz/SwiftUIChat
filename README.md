@@ -207,5 +207,5 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 
 ## Support
 
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/SwiftUIChat/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/SwiftUIChat/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/arturpilavetz/SwiftUIChat/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/arturpilavetz/SwiftUIChat/discussions)
