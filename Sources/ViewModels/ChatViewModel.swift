@@ -10,9 +10,9 @@ import SwiftUI
 @MainActor
 public class ChatViewModel: ObservableObject {
 	@Published public var messages = [ChatMessage]()
-	public var localUserID = 0
-	public var chatID = 0
-
+	public var localUserID: Int = 0
+	public var chatID: Int = 0
+	public var allowsMessageInput: Bool = true
 
 	public init() {
 

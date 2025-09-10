@@ -8,32 +8,17 @@
 import SwiftUI
 
 public struct ChatMessage: Identifiable, Equatable {
-	struct Sender {
-		var id: String
-		var displayName: String
-
-		public init(id: String, displayName: String) {
-			self.id = id
-			self.displayName = displayName
-		}
-	}
-
 	public let id = UUID()
-	public var chatId: Int?
-	public let userId: Int
-	public let timestamp: Double
-	public let message: String
+	let chatId: Int?
+	let userId: Int
+	let timestamp: Double
+	let message: String
 
-	public let type: MessageContentType
-
-	var sender: Sender {
-		Sender(id: "\(userId)", displayName: "")
-	}
+	let type: MessageContentType
 
 	var sentDate: Date {
 		Date(timeIntervalSince1970: timestamp)
 	}
-
 
 	enum CodingKeys: String, CodingKey {
 		case id = "id"

@@ -7,29 +7,32 @@
 
 import SwiftUI
 
-public struct ChatInputBar: View {
+struct ChatInputBar: View {
 	@Binding var text: String
 	@FocusState var isInputFocused: Bool
 	var onSend: () -> Void
 
 	@Binding var textFieldHeight: CGFloat
 	var textFieldInsets: CGFloat
+	var allowsMessageInput: Bool
 
-	public init(
+	init(
 		text: Binding<String>,
 		isInputFocused: FocusState<Bool>,
 		textFieldHeight: Binding<CGFloat>,
 		textFieldInsets: CGFloat = 10,
+		allowsMessageInput: Bool,
 		onSend: @escaping () -> Void
 	) {
 		self._text = text
 		self._isInputFocused = isInputFocused
 		self._textFieldHeight = textFieldHeight
 		self.textFieldInsets = textFieldInsets
+		self.allowsMessageInput = allowsMessageInput
 		self.onSend = onSend
 	}
 
-	public var body: some View {
+	var body: some View {
 		Group {
 			if #available(iOS 26.0, *) {
 				modernInputBar
@@ -53,7 +56,7 @@ public struct ChatInputBar: View {
 					.onSubmit { onSend() }
 					.accessibilityLabel("Message input field")
 					.accessibilityHint("Type your message and press send")
-
+					.allowsHitTesting(allowsMessageInput)
 				Button(action: onSend) {
 					Image(systemName: "paperplane.fill")
 						.rotationEffect(.degrees(45))
@@ -91,6 +94,7 @@ public struct ChatInputBar: View {
 						.focused($isInputFocused)
 						.clipped()
 						.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+						.allowsHitTesting(allowsMessageInput)
 						.introspect(.textEditor, on: .iOS(.v15, .v16, .v17, .v18)) { textEditor in
 							textEditor.backgroundColor = .clear
 						}

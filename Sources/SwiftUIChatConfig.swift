@@ -1,5 +1,9 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  SwiftUIChatConfig.swift
+//  SwiftUIChat
+//
+//  Created by Artur Pilavetz on 10.09.2025.
+//
 
 import SwiftUI
 
@@ -7,28 +11,26 @@ import SwiftUI
 public struct ChatConfiguration {
 	public let localUserID: Int
 	public let chatID: Int
-//	public let allowsMessageInput: Bool
-//	public let maxMessageLength: Int
+	public let allowsMessageInput: Bool
 
 	public init(
 		localUserID: Int = 0,
 		chatID: Int = 0,
-//		allowsMessageInput: Bool = true,
-//		maxMessageLength: Int = 500
+		allowsMessageInput: Bool = true,
 	) {
 		self.localUserID = localUserID
 		self.chatID = chatID
-//		self.allowsMessageInput = allowsMessageInput
-//		self.maxMessageLength = maxMessageLength
+		self.allowsMessageInput = allowsMessageInput
 	}
 }
 
 // MARK: - Public Factory Methods
 public extension ChatView {
-	static func create(with configuration: ChatConfiguration = ChatConfiguration()) -> ChatView {
-		let viewModel = ChatViewModel()
-		viewModel.localUserID = configuration.localUserID
-		viewModel.chatID = configuration.chatID
-		return ChatView(viewModel: viewModel)
+	static func create(with configuration: ChatConfiguration, viewModel: ChatViewModel? = nil) -> ChatView {
+		let vm = viewModel ?? ChatViewModel()
+		vm.localUserID = configuration.localUserID
+		vm.chatID = configuration.chatID
+		vm.allowsMessageInput = configuration.allowsMessageInput
+		return ChatView(viewModel: vm)
 	}
 }

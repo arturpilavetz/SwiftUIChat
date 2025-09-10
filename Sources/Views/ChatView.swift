@@ -86,6 +86,7 @@ public struct ChatView: View {
 				isInputFocused: _isInputFocused,
 				textFieldHeight: $textFieldHeight,
 				textFieldInsets: textFieldInsets,
+				allowsMessageInput: viewModel.allowsMessageInput,
 				onSend: sendMessage
 			)
 		}

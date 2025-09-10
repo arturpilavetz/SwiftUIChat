@@ -37,7 +37,6 @@ public enum MessageContentType: Sendable {
 		}
 	}
 
-
 	public var hAlignment: Alignment {
 		switch self {
 			case .user:
@@ -47,4 +46,3 @@ public enum MessageContentType: Sendable {
 		}
 	}
 }
-
