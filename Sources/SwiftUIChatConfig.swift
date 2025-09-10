@@ -32,25 +32,3 @@ public extension ChatView {
 		return ChatView(viewModel: viewModel)
 	}
 }
-
-// MARK: - Public Theme Support
-//public struct ChatTheme {
-//	public var userBackgroundColor: Color
-//	public var partnerBackgroundColor: Color
-//	public var userTextColor: Color
-//	public var partnerTextColor: Color
-//
-//	public init(
-//		userBackgroundColor: Color = .blue,
-//		partnerBackgroundColor: Color = .gray,
-//		userTextColor: Color = .white,
-//		partnerTextColor: Color = .black
-//	) {
-//		self.userBackgroundColor = userBackgroundColor
-//		self.partnerBackgroundColor = partnerBackgroundColor
-//		self.userTextColor = userTextColor
-//		self.partnerTextColor = partnerTextColor
-//	}
-//
-//	@MainActor public static let `default` = ChatTheme()
-//}

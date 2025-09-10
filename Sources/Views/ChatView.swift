@@ -31,7 +31,7 @@ public struct ChatView: View {
 		ZStack(alignment: .bottom) {
 			ScrollViewReader { proxy in
 				ScrollView(.vertical, showsIndicators: false) {
-					VStack(spacing: 8) {
+					LazyVStack(spacing: 8) {
 						ForEach(viewModel.messages) { message in
 							MessageView(message: message)
 								.id(message.id)
