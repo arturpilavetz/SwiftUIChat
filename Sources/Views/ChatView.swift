@@ -11,16 +11,13 @@ import SwiftUIIntrospect
 
 public struct ChatView: View {
 	@StateObject var viewModel: ChatViewModel
-
 	@FocusState private var isInputFocused: Bool
-
 	@State private var newMessage: String = ""
 	@State private var safeAreaTopHeight: CGFloat = 0
 	@State private var safeAreaBottomHeight: CGFloat = 0
 	@State private var textFieldHeight: CGFloat = 0
 
 	private let textFieldInsets: CGFloat = 10
-
 
 	public init(viewModel: ChatViewModel) {
 		self._viewModel = StateObject(wrappedValue: viewModel)
@@ -84,95 +81,13 @@ public struct ChatView: View {
 			.ignoresSafeArea(.all, edges: [.top])
 			.padding(.bottom, -safeAreaBottomHeight) //is made to get scrollView get to the screen bottom as well as with the keyboard functionality
 
-			if #available(iOS 26.0, *) {
-				VStack {
-					Spacer()
-
-					HStack {
-						TextField("Type your message...", text: $newMessage, axis: .vertical)
-							.lineLimit(1...5)
-							.focused($isInputFocused)
-							.onSubmit {
-								sendMessage()
-							}
-
-						Button(action: sendMessage) {
-							Image(systemName: "paperplane.fill")
-								.rotationEffect(.degrees(45))
-								.padding(.leading, 8)
-						}
-						.disabled(newMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-					}
-					.padding(.horizontal, 16)
-					.padding(.vertical, 12)
-					.glassEffect(in: .rect(cornerRadius: 23.0))
-					.background(
-						GeometryReader { geometry in
-							Color.clear
-								.onChange(of: geometry.size.height) { newHeight in
-									textFieldHeight = newHeight
-								}
-								.onAppear {
-									textFieldHeight = geometry.size.height
-								}
-						}
-					)
-
-				}
-				.padding(.bottom, textFieldInsets)
-				.padding([.leading, .trailing], textFieldInsets)
-			} else { // iOS 15-18 support
-				VStack {
-					Spacer()
-
-					HStack {
-						ZStack(alignment: .topLeading) {
-							TextEditor(text: $newMessage)
-								.frame(minHeight: 36, maxHeight: 120)
-								.fixedSize(horizontal: false, vertical: true)
-								.focused($isInputFocused)
-								.clipped()
-								.clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-
-								.introspect(.textEditor, on: .iOS(.v15, .v16, .v17, .v18)) { textEditor in
-									textEditor.backgroundColor = .clear
-								}
-							if newMessage.isEmpty {
-								Text("Type your message...")
-									.foregroundColor(.gray)
-									.padding(.horizontal, 4)
-									.padding(.vertical, 8)
-									.allowsHitTesting(false)
-							}
-						}
-
-						Button(action: sendMessage) {
-							Image(systemName: "paperplane.fill")
-								.rotationEffect(.degrees(45))
-								.padding(.leading, 8)
-						}
-						.disabled(newMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-					}
-					.padding(.horizontal, 14)
-					.padding(.vertical, 6)
-					.background(.ultraThinMaterial)
-					.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-					.background(
-						GeometryReader { geometry in
-							Color.clear
-								.onChange(of: geometry.size.height) { newHeight in
-									textFieldHeight = newHeight
-								}
-								.onAppear {
-									textFieldHeight = geometry.size.height
-								}
-						}
-					)
-				}
-				.padding(.bottom, textFieldInsets)
-				.padding([.leading, .trailing], textFieldInsets)
-
-			}
+			ChatInputBar(
+				text: $newMessage,
+				isInputFocused: _isInputFocused,
+				textFieldHeight: $textFieldHeight,
+				textFieldInsets: textFieldInsets,
+				onSend: sendMessage
+			)
 		}
 	}
 
