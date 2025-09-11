@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-public struct MessageShape: Shape {
-	public var type: MessageContentType
+struct MessageShape: Shape {
+	var type: MessageContentType
 
-	public func path(in rect: CGRect) -> Path {
+	func path(in rect: CGRect) -> Path {
 		let width = rect.width
 		let height = rect.height
 
